@@ -12,12 +12,12 @@ Bevor man startet, muss man sicher stellen , dass Folgendes auf dem Rechner inst
 
 ## Repository klonen
 
-Danach sollte man das Repository mit folgendem Befehl auf deinen Computer:
+Danach sollte man das Repository mit folgendem Befehl auf dem Computer herunterladen:
 
 bash
 git clone https://github.com/DEIN-USERNAME/docker-nodejs-sample.git
 
-Wechsle anschliessend in das Projektverzeichnis:
+Anschliessend in das Projektverzeichnis wechseln:
 
 ```bash
 cd docker-nodejs-sample
@@ -33,13 +33,13 @@ npm install
 
 ## Anwendung lokal starten
 
-Starte die Anwendung im Entwicklungsmodus mit:
+Den Befehl in der Entwicklungsumgebung (z.B Visual studio code) ausführen mit:
 
 ```bash
 npm run dev
 ```
 
-Die Anwendung ist danach unter folgender Adresse erreichbar:
+Die Anwendung ist unter folgender Adresse erreichbar:
 
 ```
 http://localhost:3000
@@ -47,7 +47,7 @@ http://localhost:3000
 
 ## Docker-Image erstellen
 
-Erstelle ein Docker-Image der Anwendung mit:
+Das Docker-Image erstellen mit:
 
 ```bash
 docker build -t docker-nodejs-sample .
@@ -55,7 +55,7 @@ docker build -t docker-nodejs-sample .
 
 ## Anwendung mit Docker starten
 
-Starte einen Container basierend auf dem erstellten Image:
+den Container starten basierend auf dem erstellten Image:
 
 ```bash
 docker run -p 3000:3000 -d docker-nodejs-sample
@@ -75,7 +75,7 @@ docker compose up -d
 
 Um den Container zu stoppen, der über `docker run` gestartet wurde:
 
-1. Container-ID ermitteln:
+1. Container-ID herausfinden:
 
 ```bash
    docker ps
