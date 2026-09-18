@@ -1,48 +1,94 @@
-# **Thema:** Erstellen einer ToDo-Applikation mit Markdown, Git, GitHub und Docker
+# ToDo-Applikation mit Docker
 
-In dieser Abschlussaufgabe werden alle erlernten Fähigkeiten in den Bereichen **Markdown**, **Git**, **GitHub** und **Docker** kombiniert. Die Aufgabe besteht darin, eine ToDo-Applikation zu erstellen und diese in einem Docker-Container bereitzustellen.
+Dieses Projekt ist eine einfache **ToDo-Applikation**, entwickelt mit [Node.js](https://nodejs.org) und [Express](https://expressjs.com). Sie dient als Übung im Rahmen zu Git, GitHub und Docker.
 
-### **Aufgabenstellung:**
+## Voraussetzungen
 
-1. **GitHub-Fork erstellen:**
-   - Erstelle einen **Fork** des folgenden GitHub-Repositories: [docker-nodejs-sample](https://github.com/ICT-BLJ/docker-nodejs-sample).
-   - Clone deinen Fork lokal auf deinen Computer.
+Bevor man startet, muss man sicher stellen , dass Folgendes auf dem Rechner installiert ist:
 
-2. **Erstellen einer README-Datei in Markdown:**
-   - Erstelle eine **README.md** Datei im Root-Verzeichnis des Projekts.
-   - Die README soll alle Schritte zur **Installation des Projekts** enthalten. Dazu gehören:
-     - Klonen des Repositories
-     - Installation der notwendigen Pakete
-     - Docker-Konfiguration und -Installation
-     - Starten der Applikation in einem Docker-Container
-   - Nutze [Markdown](https://www.markdownguide.org/cheat-sheet/) für die Struktur und Formatierung der Datei.
+-   [Node.js](https://nodejs.org) (inkl. npm)
+-   [Git](https://git-scm.com)
+-   [Docker](https://www.docker.com)
 
-3. **Dokumentation der Vorgehensweise:**
-   - Verfasse eine vollständige **Dokumentation in Word**, in der die Arbeitsschritte beschrieben werden. Diese Schritte sind:
-     - Klonen des Repositories
-     - Einrichtung der Entwicklungsumgebung
-     - Erstellung der README.md
-     - Verwendung von Git (Commit, Push)
-     - Erstellung und Nutzung von Docker-Containern
-   - Verwende die während des Office-Kurses erarbeiteten Kenntnisse für das Erstellen dieses Dokuments.
+## Repository klonen
 
-4. **Dockerize das Node.js-Projekt:**
-   - Verfolge die Anleitung unter [docs.docker.com](https://docs.docker.com/guides/language/nodejs/containerize/) ab dem Schritt **"Initialize Docker assets"**.
-   - Dein Ziel ist es, das Projekt in einem Docker-Container lauffähig zu machen, sodass am Ende eine **ToDo-Applikation** in einem Docker-Container bereitsteht.
+Danach sollte man das Repository mit folgendem Befehl auf deinen Computer:
 
-5. **Git-Workflows:**
-   - Arbeite mit **Git**, um Änderungen regelmäßig zu committen und auf GitHub zu pushen.
-   - Verwende sinnvolle Commit-Nachrichten, um deinen Fortschritt zu dokumentieren.
-   - Stelle sicher, dass dein finaler Stand auf GitHub vorhanden ist.
+bash
+git clone https://github.com/DEIN-USERNAME/docker-nodejs-sample.git
 
-6. **Abgabe:**
-   - **Dokumentation:** Lade die erstellte Word-Dokumentation (inkl. Screenshots und Beschreibung der Schritte) in dein Repository hoch.
-   - **GitHub-Link:** Stelle den Link zu deinem GitHub-Repository bereit, das den finalen Stand des Projekts enthält.
+Wechsle anschliessend in das Projektverzeichnis:
 
-### **Ziele der Aufgabe:**
-- Anwendung und Vertiefung von Git und GitHub.
-- Verfassen einer strukturierten Anleitung mit Markdown.
-- Containerisieren einer Node.js-Anwendung mit Docker.
-- Dokumentation des gesamten Prozesses in einem Word-Dokument.
-  
-Viel Erfolg bei der Umsetzung!
+```bash
+cd docker-nodejs-sample
+```
+
+## Pakete installieren
+
+Installiere alle benötigten Node.js-Abhängigkeiten mit:
+
+```bash
+npm install
+```
+
+## Anwendung lokal starten
+
+Starte die Anwendung im Entwicklungsmodus mit:
+
+```bash
+npm run dev
+```
+
+Die Anwendung ist danach unter folgender Adresse erreichbar:
+
+```
+http://localhost:3000
+```
+
+## Docker-Image erstellen
+
+Erstelle ein Docker-Image der Anwendung mit:
+
+```bash
+docker build -t docker-nodejs-sample .
+```
+
+## Anwendung mit Docker starten
+
+Starte einen Container basierend auf dem erstellten Image:
+
+```bash
+docker run -p 3000:3000 -d docker-nodejs-sample
+```
+
+Die Anwendung ist danach ebenfalls unter `http://localhost:3000` erreichbar.
+
+## Anwendung mit Docker Compose starten
+
+Alternativ kann die Anwendung mit **Docker Compose** gestartet werden:
+
+```bash
+docker compose up -d
+```
+
+## Anwendung stoppen
+
+Um den Container zu stoppen, der über `docker run` gestartet wurde:
+
+1. Container-ID ermitteln:
+
+```bash
+   docker ps
+```
+
+2. Container stoppen:
+
+```bash
+   docker stop CONTAINER_ID
+```
+
+Falls die Anwendung mit **Docker Compose** gestartet wurde, genügt:
+
+```bash
+docker compose down
+```
